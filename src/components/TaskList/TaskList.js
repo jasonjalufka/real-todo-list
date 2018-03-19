@@ -6,7 +6,7 @@ const TaskList = ({tasks}) => (
   <table className="u-full-width">
     <tbody>
       <tr>
-        <th>Priority</th>
+        <th className = {(props.sortBy == "Priority")? "normal": "sortfield"}>Priority</th>
         <th>Task</th> 
         <th>Entry Date</th>
         <th>Due Date</th>

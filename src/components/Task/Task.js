@@ -4,13 +4,13 @@ import Edit from '../Edit/Edit';
 
 const Task = ({id, priority, text, entryDate, dueDate, status}) => (
 
-  <tr>
+  <tr className="task-table">
     <td>{priority}</td>
     <td>{text}</td> 
     <td>{entryDate}</td>
     <td>{dueDate}</td>
     <td>{status}</td>
-    <td><Edit id={id}/></td>
+    <td><Edit id={id} priority={priority} text={text} entryDate={entryDate} dueDate={dueDate} status={status}/></td>
     <td><Delete id={id} /></td>
   </tr>
 )

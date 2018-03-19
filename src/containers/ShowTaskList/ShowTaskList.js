@@ -4,6 +4,7 @@ import TaskList from '../../components/TaskList/TaskList';
 const mapStateToProps = state => {
   return {
     tasks: state.tasks
+    // tasks: functionName(state.tasks, state.sortBy)
   }
 }
 

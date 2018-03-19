@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import TaskForm from '../../containers/TaskForm/TaskForm';
 
-const editButton = ( props ) => {
-  return (
-    <button onClick={() => props.onEdit(props.id)}>Edit</button>
-  );
+class EditButton extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      isEditing: false
+    }
+  }
+
+  toggleEditing () {
+    this.setState ({
+      isEditing: !this.state.isEditing
+    });
+  }
+  render () {
+    return (
+      <div>
+        <button onClick={this.toggleEditing.bind(this)} >
+          Edit
+        </button>
+        {this.state.isEditing && <TaskForm id={this.props.id} />}
+      </div>
+    );
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -13,4 +33,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(editButton);
+export default connect(null, mapDispatchToProps)(EditButton);

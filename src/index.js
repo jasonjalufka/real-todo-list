@@ -12,6 +12,8 @@ import { loadState, saveState } from './localStorage';
 const persistedState = loadState();
 const store = createStore(rootReducer, persistedState);
 
+// subscribe adds change listener to be called any time an action is dispatched
+// the listener is invoked on any state change, passing in the current state of the store into saveState()
 store.subscribe(() => {
   saveState({
     tasks: store.getState().tasks
